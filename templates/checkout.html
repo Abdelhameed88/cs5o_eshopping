@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div id="header_content"></div>
+<div id="wrapper" class="container">
+	<div class="span9">
+		<h4>Checkout</h4>
+	</div>
+</div>
+<script>
+	function validateForm() {
+		var firstname = document.forms["chkoutForm"]["firstname"].value;
+		var lastname = document.forms["chkoutForm"]["lastname"].value;
+		var email = document.forms["chkoutForm"]["email"].value;
+		var telephone = document.forms["chkoutForm"]["telephone"].value;
+		var country = document.forms["chkoutForm"]["country"].value;
+		var city = document.forms["chkoutForm"]["city"].value;
+		var address = document.forms["chkoutForm"]["address"].value;
+		var postcode = document.forms["chkoutForm"]["postcode"].value;
+		if (firstname == "") {
+			alert("Please enter your First name");
+			return false;
+		}
+		if (lastname == "") {
+			alert("Please enter your Last name");
+			return false;
+		}
+		if (email == "") {
+			alert("Please enter your email");
+			return false;
+		}
+		if (telephone == "") {
+			alert("Please enter your Telephone");
+			return false;
+		}
+		if (country == "") {
+			alert("Please enter your Country");
+			return false;
+		}
+		if (city == "") {
+			alert("Please enter your City");
+			return false;
+		}
+		if (address == "") {
+			alert("Please enter your Address");
+			return false;
+		}
+		if (postcode == "") {
+			alert("Please enter your Postal Code");
+			return false;
+		}
+	}
+</script>
+<div class="span4">
+	<h4>Shopping Cart</h4>
+	<a href="{{url_for('product_details', product_info_id = productID)}}"><img 
+		src="{{ url_for('static', filename= productImage)}}"/></a><br> 
+	<strong>Category:</strong> <span>{{productCategory}}</span><br>
+	<strong>Name:</strong> <span>{{productName}}</span><br>
+	<!--<strong>Color:</strong> <span>RED/span><br>-->
+	<h6><strong>Price: EGP {{productPrice}}</strong></h6>
+</div>
+<section class="main-content">
+	<div class="row">
+		<div class="span5">
+			<form name="chkoutForm" action="/confirm" onsubmit="return validateForm()">
+				<h4>Your Personal Details</h4>
+				<div class="control-group">
+					<label class="control-label"><span class="required">*</span> First Name</label>
+					<div class="controls">
+						<input type="text" placeholder="" name="firstname" id="firstname" class="input-xlarge">
+					</div>
+					<label class="control-label"><span class="required">*</span> Last Name</label>
+					<div class="controls">
+						<input type="text" placeholder="" name="lastname" class="input-xlarge">
+					</div>
+					<div class="control-group">
+						<label class="control-label"><span class="required">*</span> Email Address</label>
+						<div class="controls">
+							<input type="text" placeholder="" name="email" class="input-xlarge">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label"><span class="required">*</span> Telephone</label>
+						<div class="controls">
+							<input type="number" placeholder="" name="telephone" class="input-xlarge">
+						</div>
+					</div>
+					<h4>Billing Address</h4>
+					<div class="control-group">
+						<label class="control-label"><span class="required">*</span> Country</label>
+						<div class="controls">
+							<select class="input-xlarge" name="country">
+								<option value="Egypt">Egypt</option>
+								<option value="Saudi Arabia">Saudi Arabia</option>
+								<option value="Oman">Oman</option>
+								<option value="US">US</option>
+								<option value="UK">UK</option>
+								<option value="South Korea">South Korea</option>
+							</select>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label"><span class="required">*</span> City:</label>
+						<div class="controls">
+							<input type="text" placeholder="" name="city" class="input-xlarge">
+						</div>
+						<label class="control-label"><span class="required">*</span> Address</label>
+						<div class="controls">
+							<input type="text" placeholder="" name="address" class="input-xlarge">
+						</div>
+						<label class="control-label"><span class="required">*</span> Post Code:</label>
+						<div class="controls">
+							<input type="number" placeholder="" name="postcode" class="input-xlarge">
+						</div>
+					</div>
+				</div>
+				<br />
+				<input type="hidden" name="product_info_name" value="{{productName}}">
+				<input type="hidden" name="product_info_id" value="{{productID}}">
+				<div class="span7">
+					<input tabindex="3" class="btn btn-inverse large" type="submit" value="Please order">
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+</div>
+{% endblock %}

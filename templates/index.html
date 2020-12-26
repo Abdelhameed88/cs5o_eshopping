@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="main-content">
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<div class="span12">
+					<h4 class="title">
+						<span class="pull-left"><span class="text">
+								<strong>Products Category</strong></span></span>
+						<span class="pull-right">
+							<a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button"
+								href="#myCarousel" data-slide="next"></a>
+						</span>
+					</h4>
+					<div id="myCarousel" class="myCarousel carousel slide">
+						<div class="carousel-inner">
+							<div class="active item">
+								<ul class="thumbnails">
+									<li class="span3">
+										<div class="product-box">
+											<span class="sale_tag"></span>
+											<a href="{{url_for('category', product_info_category = 'decoupage')}}" class="category">Decoupage</a>
+											<br />
+											<p><a href="{{url_for('category', product_info_category = 'decoupage')}}"><img src="{{ url_for('static', filename= 'themes/images/products/decoupage_02.JPG' ) }}"
+														alt="" /></a></p>
+										</div>
+									</li>
+									<li class="span3">
+										<div class="product-box">
+											<span class="sale_tag"></span>
+											<a href="{{url_for('category', product_info_category = 'Table_Runner_Set')}}" class="category">Table Runners</a>
+											<br />
+											<p><a href="{{url_for('category', product_info_category = 'Table_Runner_Set')}}"><img src="{{ url_for('static', filename= 'themes/images/products/tablerunnerset_2.JPG' ) }}"
+														alt="" /></a></p>
+										</div>
+									</li>
+									<li class="span3">
+										<div class="product-box">
+											<span class="sale_tag"></span>
+											<a href="{{url_for('category', product_info_category = 'Dinning_Set')}}" class="category">Dinning</a>
+											<br />
+											<p><a href="{{url_for('category', product_info_category = 'Dinning_Set')}}"><img src="{{ url_for('static', filename= 'themes/images/products/diningset_2.JPG' ) }}"
+														alt="" /></a></p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+		</div>
+	</div>
+</section>
+{% endblock %}

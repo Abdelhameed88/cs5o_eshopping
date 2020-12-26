@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% block content %}
+<script>
+	function validateForm() {
+	  var firstname = document.forms["RegstForm"]["firstname"].value;
+	  var lastname = document.forms["RegstForm"]["lastname"].value;
+	  var email = document.forms["RegstForm"]["email"].value;
+	  var username= document.forms["RegstForm"]["username"].value;
+	  var password = document.forms["RegstForm"]["password"].value;
+	  if (firstname == "" ) {
+		alert("Please enter your First name");
+		return false;
+	  }
+	  if (lastname == "" ) {
+		alert("Please enter your Last name");
+		return false;
+	  }
+	  if (email == "" ) {
+		alert("Please enter your email");
+		return false;
+	  }
+	  if (username == "" ) {
+		alert("Please enter username field");
+		return false;
+	  }
+	  if (password == "" ) {
+		alert("Please enter password field");
+		return false;
+	  }
+	}
+</script>
+<div class="row">
+	<div class="span5">
+		<h4 class="title"><span class="text"><strong>Register</strong></span></h4>
+		<form name = "RegstForm" action="/registerSubmit" onsubmit="return validateForm()">
+			<div class="control-group">
+				<label class="control-label"><span class="required">*</span> First name</label>
+				<div class="controls">
+					<input type="text" name="firstname" placeholder="" class="input-xlarge">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label"><span class="required">*</span> Last name</label>
+				<div class="controls">
+					<input type="text" name="lastname" placeholder="" class="input-xlarge">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label"><span class="required">*</span> Email</label>
+				<div class="controls">
+					<input type="text" name="email" placeholder="" class="input-xlarge">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label"><span class="required">*</span> Create Username</label>
+				<div class="controls">
+					<input type="text" name="username" placeholder="" class="input-xlarge">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label"><span class="required">*</span> Create Password</label>
+				<div class="controls">
+					<input type="password" name="password" placeholder="" class="input-xlarge">
+				</div>
+			</div>
+			<div class="control-group">
+				<input tabindex="3" class="btn btn-inverse large" type="submit" value="Register">
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

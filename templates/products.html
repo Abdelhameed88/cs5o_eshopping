@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="main-content">
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<div class="span12">
+					<h4 class="title">
+						<span class="pull-left"><span class="text">
+								<strong>products</strong></span></span>
+						<span class="pull-right">
+							<a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button"
+								href="#myCarousel" data-slide="next"></a>
+						</span>
+					</h4>
+					<div id="myCarousel" class="myCarousel carousel slide">
+						<div class="carousel-inner">
+							<div class="active item">
+								<ul class="thumbnails">
+									{%for product_info in products_info%}
+									<li class="span3">
+										<div class="product-box">
+											<span class="sale_tag"></span>
+											<p><a href="{{url_for('product_details', product_info_id = product_info.ID)}}"><img
+														src="{{ url_for('static', filename= product_info.image_path) }}"
+														alt="" /></a></p>
+											<a href="{{url_for('product_details', product_info_id = product_info.ID)}}" class="category">{{product_info.Name}}</a>
+											<br />
+											{{product_info.Price}} EGP
+											<br />
+											<form action="/checkout">
+												<input type="hidden" name="product_info_name" value="{{product_info.Name}}">
+												<input type="hidden" name="product_info_id" value="{{product_info.ID}}">
+												<input type="hidden" name="product_info_price" value="{{product_info.Price}}">
+												<input type="hidden" name="product_info_category" value="{{product_info.Category}}">
+												<input type="hidden" name="product_info_image" value="{{product_info.image_path}}">
+												<input class="btn btn-inverse large" type="submit" value="Checkout">
+											</form>
+										</div>
+										{% endfor %}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+		</div>
+	</div>
+</section>
+{% endblock %}

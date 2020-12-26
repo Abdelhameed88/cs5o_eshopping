@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block content %}
+<script>
+	function validateForm() {
+	  var username= document.forms["RegstForm"]["username"].value;
+	  var password = document.forms["RegstForm"]["password"].value;
+	  if (username == "" ) {
+		alert("Please enter your username field");
+		return false;
+	  }
+	  if (password == "" ) {
+		alert("Please enter your password field");
+		return false;
+	  }
+	}
+</script>
+<div class="row">
+	<div class="span5">
+		<h4 class="title"><span class="text"><strong>Login</strong> or <strong>Register</strong></span></h4>
+		<form action="/login">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">Username</label>
+					<div class="controls">
+						<input type="text" name="username" placeholder="Enter your username" class="input-xlarge">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Password</label>
+					<div class="controls">
+						<input type="password" name="password" placeholder="Enter your password" class="input-xlarge">
+					</div>
+				</div>
+				<div class="control-group">
+					<input tabindex="3" class="btn btn-inverse large" type="submit" value="Sign into your account">
+				</div>
+			</fieldset>
+		</form>
+		<form action="/register">
+			<div class="control-group">
+				<input tabindex="3" class="btn btn-inverse large" type="submit" value="Register">
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
