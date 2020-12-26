@@ -62,7 +62,7 @@ Database is created to store users details, products, orders and checkout inform
 ## How to launch application
 
 1. Make sure that Python 3 is installed.
-2. Clone the code: `git clone https://github.com/Abdelhameed88/cs50-online-shop.git`
+2. Clone the code: `git clone https://github.com/Abdelhameed88/cs5o_eshopping.git`
 3. Run command prompt in the folder and run `python -m pip install flask` to install flask
 4. Once installed run command `python flask run`
 5. In your browser go to `http://localhost:5000/home`
